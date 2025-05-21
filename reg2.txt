@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <top>
+      <AnchorPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3d6e88" height="49.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+            <Text fill="WHITE" layoutX="204.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parking Manager">
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="356.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../Downloads/egor-myznik-rCZQCbUAQvg-unsplash.jpg" />
+               </image>
+               <effect>
+                  <Blend mode="MULTIPLY" opacity="0.6" />
+               </effect>
+            </ImageView>
+            <Text fill="WHITE" layoutX="26.0" layoutY="48.0" stroke="#93518b" strokeType="OUTSIDE" text="Register Your Spot">
+               <font>
+                  <Font name="Lato Black" size="34.0" />
+               </font>
+            </Text>
+            <TextField fx:id="namereg3" alignment="CENTER" layoutX="106.0" layoutY="60.0" prefHeight="30.0" prefWidth="179.0" promptText="Enter Name" style="-fx-background-color: #dcdcdc;">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="33.0" layoutY="60.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="74.0" />
+            <Text fill="WHITE" layoutX="37.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <TextField fx:id="noreg3" alignment="CENTER" layoutX="107.0" layoutY="147.0" prefHeight="30.0" prefWidth="178.0" promptText="Enter Contact.no Without Dashes" style="-fx-background-color: #dcdcdc;">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="33.0" layoutY="147.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="74.0" />
+            <Text fill="WHITE" layoutX="46.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact No">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <TextField fx:id="vehnoreg3" alignment="CENTER" layoutX="106.0" layoutY="187.0" prefHeight="30.0" prefWidth="179.0" promptText="Enter Veh.no Without Dashes" style="-fx-background-color: #dcdcdc;">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="33.0" layoutY="187.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="74.0" />
+            <Text fill="WHITE" layoutX="48.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle No">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <TextField fx:id="modelreg3" alignment="CENTER" layoutX="106.0" layoutY="227.0" prefHeight="30.0" prefWidth="180.0" promptText="Corolla, Honda 125, etc" style="-fx-background-color: #dcdcdc;">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="32.0" layoutY="226.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="74.0" />
+            <Text fill="WHITE" layoutX="54.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="338.0" fitWidth="221.0" layoutX="377.0" layoutY="12.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/pngegg%20(1).png" />
+               </image>
+            </ImageView>
+            <Button fx:id="nextpg2" layoutX="111.0" layoutY="296.0" mnemonicParsing="false" onAction="#nextpg2ButtonOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #0091FF;" text="Next" textFill="WHITE" />
+            <TextField fx:id="cnicreg3" alignment="CENTER" layoutX="106.0" layoutY="104.0" prefHeight="30.0" prefWidth="179.0" promptText="Enter CNIC Without Dashes" style="-fx-background-color: #dcdcdc;">
+               <font>
+                  <Font size="10.0" />
+               </font></TextField>
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="33.0" layoutY="103.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="74.0" />
+            <Text fill="WHITE" layoutX="60.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CNIC">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <Button fx:id="backpg2" layoutX="20.0" layoutY="296.0" mnemonicParsing="false" onAction="#backpg2ButtonOnAction" prefHeight="20.0" prefWidth="68.0" style="-fx-background-color: #0091FF;" text="Back" textFill="WHITE" />
+            <Label fx:id="Reg2Label" alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="6.0" prefHeight="17.0" prefWidth="312.0" text="Label" textFill="#c6b6b6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

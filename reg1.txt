@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <top>
+      <AnchorPane prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2d4e73" height="49.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
+            <Text fill="WHITE" layoutX="204.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parking Manager">
+               <font>
+                  <Font name="Calibri" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="356.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../Downloads/egor-myznik-rCZQCbUAQvg-unsplash.jpg" />
+               </image>
+               <effect>
+                  <Blend mode="MULTIPLY" opacity="0.6" />
+               </effect>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="352.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="324.0">
+               <fill>
+                  <LinearGradient endX="0.7074699197477469" endY="0.7807486545306352" startY="0.8262031689762621">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006738705536887301">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9999999713786394">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" opacity="0.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label fx:id="Reg1Label" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="68.0" prefHeight="16.0" prefWidth="276.0" text="I am dummy" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button layoutX="16.0" layoutY="313.0" mnemonicParsing="false" onAction="#signupgobackButtonOnAction" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: #0091FF;" text="Back" textFill="WHITE" />
+            <RadioButton fx:id="bikeRadioButton" layoutX="35.0" layoutY="111.0" mnemonicParsing="false" onAction="#radioButtonOnAction" text="Bike" textFill="WHITE">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="gettype" />
+               </toggleGroup>
+            </RadioButton>
+            <Text fill="WHITE" layoutX="26.0" layoutY="48.0" stroke="#93518b" strokeType="OUTSIDE" text="Register Your Spot">
+               <font>
+                  <Font name="Lato Black" size="34.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="33.0" layoutY="72.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="74.0" />
+            <Text fill="WHITE" layoutX="48.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Type">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <TextField fx:id="heightTextField" alignment="CENTER" layoutX="131.0" layoutY="179.0" prefHeight="30.0" prefWidth="66.0" promptText="In Feet" style="-fx-background-color: #dcdcdc;" />
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="33.0" layoutY="179.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="98.0" />
+            <Text fill="WHITE" layoutX="37.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Weight            ( For Truck/Bus Only )" wrappingWidth="88.32062530517578">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <TextField fx:id="lengthTextField" alignment="CENTER" layoutX="299.0" layoutY="183.0" prefHeight="30.0" prefWidth="69.0" promptText="In Feet" style="-fx-background-color: #dcdcdc;" />
+            <Rectangle arcHeight="2.0" arcWidth="2.0" fill="#93518b" height="31.0" layoutX="204.0" layoutY="181.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" width="95.0" />
+            <Text fill="WHITE" layoutX="207.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vehicle Length            ( For Truck/Bus Only)" wrappingWidth="89.02947998046875">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="338.0" fitWidth="221.0" layoutX="377.0" layoutY="12.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/pngegg%20(1).png" />
+               </image>
+            </ImageView>
+            <Button fx:id="nextButton" layoutX="108.0" layoutY="254.0" mnemonicParsing="false" onAction="#nextButtonOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #0091FF;" text="Next" textFill="WHITE" />
+            <RadioButton fx:id="carRadioButton" layoutX="35.0" layoutY="131.0" mnemonicParsing="false" onAction="#radioButtonOnAction" text="Car" textFill="WHITE" toggleGroup="$gettype">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="truckBusRadioButton" layoutX="35.0" layoutY="151.0" mnemonicParsing="false" onAction="#radioButtonOnAction" text="Truck/Bus" textFill="WHITE" toggleGroup="$gettype">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </RadioButton>
+            <Button fx:id="cancelButton" layoutX="79.0" layoutY="313.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #0091FF;" text="Cancel" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

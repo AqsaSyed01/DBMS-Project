@@ -1,0 +1,289 @@
+package application;
+//import java.sql.Connection;
+import javafx.scene.Node;
+
+
+import java.io.IOException;
+import javafx.scene.Node;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+//import java.sql.DriverManager;
+//import java.sql.PreparedStatement;
+//import java.sql.SQLException;
+import javafx.event.ActionEvent;
+
+import javafx.fxml.*;
+import javafx.scene.control.Button;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+//import javafx.scene.paint.Color;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.effect.ColorAdjust;
+
+public class SampleController {
+	Stage stage;
+	 Scene scene;
+	Boolean B= true;
+	@FXML
+	private Button cancelButton;
+	@FXML
+	private Button loginButton;
+	@FXML
+	private Label loginLabel;
+	@FXML
+	private Label labelApproval;
+	@FXML
+	private TextField  usernameField;
+	@FXML
+	private PasswordField  passwordField;
+//	@FXML
+//	private TextField customername,cnic,contactno,vehivleno,modelno;
+//	@FXML
+//	private TextField height;
+//	@FXML
+//	private TextField length;
+//	@FXML
+	private Button signupbutton,signupgoback,signupcancel;
+	@FXML
+	private TextField username;
+	@FXML
+	private TextField email;
+	@FXML
+	private PasswordField password,confirmpass;
+	@FXML
+    private Label signuplabel;
+	@FXML
+	private Label Reg1Label,Reg2Label;
+	@FXML
+    private RadioButton bikeRadioButton;
+    @FXML
+    private RadioButton carRadioButton;
+    @FXML
+    private RadioButton truckBusRadioButton;
+    @FXML
+    private TextField heightTextField;
+    @FXML
+    private TextField lengthTextField,namereg3,cnicreg3,noreg3,vehnoreg3,modelreg3;
+    @FXML
+    private Button nextButton,nextpg2,backpg2;
+    private int bikeCapacity = 30;
+    private int carCapacity = 30;
+    private int truckBusCapacity = 30;
+    @FXML
+    private ToggleGroup gettype=new ToggleGroup();
+    
+    public void backpg2ButtonOnAction (ActionEvent e) throws IOException {
+    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Reg1.fxml"));
+		stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+		scene=new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+    public void nextpg2ButtonOnAction (ActionEvent e) throws IOException {
+    	if(namereg3.getText().isBlank()==true||cnicreg3.getText().isBlank()==true||noreg3.getText().isBlank()==true||vehnoreg3.getText().isBlank()==true||modelreg3.getText().isBlank()==true) {
+    		Reg2Label.setText("Please fill all of the credentials");
+    		return;
+    	}
+    	Main.name=Main.cnic=Main.conno=Main.vehno=Main.vehmodel="";
+    	Main.name=namereg3.getText();
+    	Main.cnic=cnicreg3.getText();
+        Main.conno=noreg3.getText();
+        Main.vehno=vehnoreg3.getText();
+        Main.vehmodel=modelreg3.getText();
+    	//Reg2Label.setText(Main.name+Main.cnic+Main.conno+Main.vehno+Main.vehmodel);
+        //Moving towards next Pane
+    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Payment.fxml"));
+		stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+		scene=new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+    
+    public void radioButtonOnAction (ActionEvent e) throws IOException {
+    	return;
+	}
+    public void nextButtonOnAction (ActionEvent e) throws IOException {
+    	Main.sheight=Main.slength="";
+    	// Check if any radio button is selected    	
+        if (truckBusRadioButton.isSelected() && (heightTextField.getText().isBlank()==true || lengthTextField.getText().isBlank()==true)) {
+        	Reg1Label.setText("Please fill the required credentials");
+            return;
+        }
+        else if (gettype.getSelectedToggle() == null /*|| heightTextField.getText().isBlank()==true || lengthTextField.getText().isBlank()==true*/) {
+            Reg1Label.setText("Please fill the required credentials");
+            return;
+        }
+        
+        if(truckBusRadioButton.isSelected()) {
+//          Retrieve values from text fields
+        	Main.sheight = heightTextField.getText();
+            Main.slength = lengthTextField.getText();
+            if(Integer.parseInt(Main.sheight)>13||Integer.parseInt(Main.slength)>30) {
+            	Reg1Label.setText("Vehicle dimensions too big to be parked");
+            	return;
+            }
+        }
+        // Placeholder: Call a method to check availability based on selected vehicle type
+        boolean isAvailable = checkParkingAvailability();
+        if(isAvailable==false) {
+        Reg1Label.setText("Sorry no capacity for the selected vahicle");
+        return; 
+        }
+        //moving towards new scene
+        BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Reg2.fxml"));
+		stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+		scene=new Scene(root);
+		stage.setScene(scene);
+		stage.show();       
+    }
+
+    private boolean checkParkingAvailability() {
+        // Placeholder: Implement your logic to check parking availability
+        // For demo, let's assume parking is available if the capacity is greater than 0
+        if (bikeRadioButton.isSelected()) {
+            return bikeCapacity > 0;
+        } else if (carRadioButton.isSelected()) {
+            return carCapacity > 0;
+        } else if (truckBusRadioButton.isSelected()) {
+            return truckBusCapacity > 0;
+        }
+        return false;   
+	}
+	
+	public void signupcancelButtonOnAction (ActionEvent e) throws IOException {
+		Stage stage = (Stage) signupcancel.getScene().getWindow();
+		stage.close();
+	}
+		
+	public void signupgobackButtonOnAction (ActionEvent e) throws IOException {
+		BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+		stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+		scene=new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	
+	
+	public void signupButtonOnAction (ActionEvent e) throws IOException {
+			//moving to next page
+				BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Signup.fxml"));
+				stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+				scene=new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+	}
+	
+	public void dosignupButtonOnAction (ActionEvent e) throws IOException, SQLException{
+		//email.setText(username.getText());
+		//confirmpass.setText(password.getText());
+		if(username.getText().isBlank()==false && password.getText().isBlank()==false && email.getText().isBlank()==false && confirmpass.getText().isBlank()==false ) {
+			if(password.getText().equals(confirmpass.getText())==false){
+				signuplabel.setText("Passwrods donot match");
+			}else {
+			Connection connection=validatelogin();
+			if(B==true) {
+				String sql="insert into customert (cusername,cpassword,cemail) values (?,?,?)";
+				PreparedStatement ps=connection.prepareStatement(sql);
+				ps.setString(1, username.getText());
+				ps.setString(2, password.getText());
+				ps.setString(3, email.getText());
+				int i=ps.executeUpdate();
+				connection.close();
+				
+			System.out.println("yahan tk tu aa gya");
+			}
+			//moving to next page
+				BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Reg1.fxml"));
+				stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+				scene=new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+		} }
+		else 
+			signuplabel.setText("Please Fill all the fields");
+	}
+
+	public void loginButtonOnAction (ActionEvent e) throws IOException, SQLException {
+		
+		if(usernameField.getText().isBlank()==false && passwordField.getText().isBlank()==false) {
+			String username = usernameField.getText();
+	        String password = passwordField.getText();
+
+	        // Call a method to validate the login
+	        if (checkLogin(username, password)) {
+	            // Login successful, perform necessary actions (e.g., navigate to the next application)
+	        	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Reg1.fxml"));
+	    		stage=(Stage)((Node)e.getSource()).getScene().getWindow();
+	    		scene=new Scene(root);
+	    		stage.setScene(scene);
+	    		stage.show();
+	        } else {
+	            // Login failed, show an error message or perform other actions
+	        	loginLabel.setText("Login failed. Please check your credentials.");
+	        }		
+		}
+   else  
+	loginLabel.setText("Please Enter Username and Password"); 
+}
+				 	
+	private Boolean checkLogin(String username, String password) {
+		// TODO Auto-generated method stub
+		try (Connection connection =validatelogin()) {
+            String query = "SELECT * FROM customert WHERE cusername = ? AND cpassword = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, password);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    // Check if there is a matching user
+                    return resultSet.next();
+                }
+            }
+        } catch (SQLException e) {
+            // Handle exceptions appropriately (log, show error message, etc.)
+            e.printStackTrace();
+        }
+
+        return false;
+	}
+
+	public void cancelButtonOnAction (ActionEvent e) {
+		Stage stage = (Stage) cancelButton.getScene().getWindow();
+		stage.close();
+	}
+	
+	Connection validatelogin () {
+		String dbURL = "jdbc:oracle:thin:@localhost:1521:orcl";
+		String username = "system";
+		String password = "Oracle_12";
+		try {
+			Connection connection=DriverManager.getConnection(dbURL,username,password);
+			System.out.println("Connected to oracle database server");
+			return connection;
+			
+		} catch (SQLException e) {
+			//loginMessageLabel.setText("Login to database failed :(");
+			loginButton.setStyle("-fx-background-color: rgb(234, 29, 29);");
+			B=false;
+			System.out.println("opps, error");
+			e.printStackTrace();
+		}
+		return null;
+	}
+}

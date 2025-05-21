@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="236.0" style="-fx-background-color: #CD6880;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="185.0" fitWidth="247.0" layoutX="6.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Downloads/pngegg%20(2).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="33.0" layoutY="240.0" text="SIGN UP to ride" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Black" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="269.0" text="the Future" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="33.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="66.0" layoutY="97.0" text="Email" textFill="#cd6880">
+               <font>
+                  <Font name="Nunito SemiBold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="66.0" layoutY="163.0" text="Password" textFill="#cd6880">
+               <font>
+                  <Font name="Nunito SemiBold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="67.0" layoutY="227.0" text="Confirm Password" textFill="#cd6880">
+               <font>
+                  <Font name="Nunito SemiBold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="37.0" text="Username" textFill="#cd6880">
+               <font>
+                  <Font name="Nunito SemiBold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="67.0" layoutY="294.0" mnemonicParsing="false" onAction="#dosignupButtonOnAction" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: #CD6880;" text="Create account" textFill="WHITE" />
+            <TextField fx:id="username" layoutX="66.0" layoutY="62.0" prefHeight="25.0" prefWidth="179.0" />
+            <TextField fx:id="email" layoutX="66.0" layoutY="121.0" prefHeight="25.0" prefWidth="179.0" />
+            <PasswordField fx:id="password" layoutX="67.0" layoutY="187.0" prefHeight="25.0" prefWidth="178.0" />
+            <PasswordField fx:id="confirmpass" layoutX="66.0" layoutY="254.0" prefHeight="25.0" prefWidth="179.0" />
+            <Button layoutX="67.0" layoutY="336.0" mnemonicParsing="false" onAction="#signupgobackButtonOnAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #CD6880;" text="Back" textFill="WHITE" />
+            <Button fx:id="signupcancel" layoutX="165.0" layoutY="336.0" mnemonicParsing="false" onAction="#signupcancelButtonOnAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #CD6880;" text="Cancel" textFill="WHITE" />
+            <Label fx:id="signuplabel" alignment="CENTER" layoutX="39.0" layoutY="19.0" prefHeight="17.0" prefWidth="268.0" text="Label" textFill="#a69393" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
